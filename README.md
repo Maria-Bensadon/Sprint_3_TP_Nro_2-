@@ -96,6 +96,3 @@ S3_TP2/
 
 
 
-
-
-└── Sprint_2_Trabajo_Practico_Nro_3/
