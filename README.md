@@ -1,12 +1,29 @@
 ##### Diplomatura Universitaria en Desarrollo Web Full Stack con JavaScript
-#### Módulo 3 - BackEnd con node.js
+##### Módulo 3 - BackEnd con node.js
 
 --- 
 
-# Sprint 3 - Trabajo Práctico Nro 1
+# Sprint 3 - Trabajo Práctico Nro 2: Validaciones
 
 ### Resumen
-En este Trabajo Práctico, ampliamos la funcionalidad del servidor mediante la adicion de los siguientes endpoints: 
+Este practico se enfoca en agregar validaciones para proteger del servidor de errores y equivocaciones de los usuarios, volviendolo mas robusto.
+
+ - nombreSuperheroe debe validarse que sea requerido, no tenga espacios 
+ en blanco(trim), una longitud minima de 3 caracteres y una longitud maxima de 60
+
+ - nombreReal debe validarse que sea requerido, no tenga espacios en 
+ blanco(trim), una longitud minima de 3 caracteres y una longitud maxima de 60
+
+ - edad debe validarse que sea requerido, que sea un numero, no tenga espacios 
+ en blanco(trim), valor minimo 0 (no admite edad negativa)
+
+ - poderes debe validarse que sea requerido, que sea un array de string cuyo 
+ tamaño no sea 0, cada elemento no tenga espacios en blanco, cada elemento una 
+ longitud minima de 3 caracteres y una longitud maxima de 60
+
+
+<details> 
+En el Trabajo Práctico Nro 1, ampliamos la funcionalidad del servidor mediante la adicion de los siguientes endpoints: 
 
     - POST => esta ruta permite crear e insertar un nuevo superheroe en la base de datos, y 
     devolver el superheroe creado
@@ -16,9 +33,9 @@ En este Trabajo Práctico, ampliamos la funcionalidad del servidor mediante la a
     La response, será el superheroe borrado
              => en este caso, se borrara un superheroe por NOMBRE, y la responde mostrara al mismo. 
 
-<details> 
 Desarrollamos un servidor que se conecta a la colección "NodeMod3Cohorte5" en la base de datos MongoDB. 
 Usando el Modelo MVC (+ capa de servicios, repositorio, rutas, y configuracion del MongoDB) armamos el proyecto de forma que las diferentes actividades esten ordenadas y sean independientes, permitiendo mejorar su escalabilidad y mantenibilidad.
+
 </details>
 
 ### Requerimientos
@@ -31,17 +48,14 @@ Usando el Modelo MVC (+ capa de servicios, repositorio, rutas, y configuracion d
     - /superheroes/edad/mayorA30: Devuelve una lista de superhéroes mayores de 30 años
     que además sean del planeta Tierra y tengan al menos 2 poderes.
 
-
 ### Flujo
 Mediante las rutas, el cliente accede a una peticion especifica o request consultando un recurso (método GET). Este request, vuelve al backend del servidor para gestionar el pedido y poder devolver una respuesta o response.
 El controlador es quien recibe la solicitud y extrae los parametros de la ruta. A continuacion, se comunica con la capa de Servicios que sirve como intermediario con la capa de Repositorio. Dentro de esta ultima capa, tenemos una interfaz (donde declamos los métodos a utilizar), y una implementacion (donde definimos la logica de dichos metodos). Para que el repositorio obtenga los datos, debe conectarse con la capa de Modelo, que mediante el esquema (schema) y el modelo (modelo) obtiene el lugar y el tipo de dato que necesita buscar en la base de datos. 
 Obtenido el o los dato/s, estos se devuelven al controlador quien utiliza funciones de la vista, que estructuran como va a ser visualizada la respuesta por el cliente o usuario. 
 
-
 ### Estructura del Trabajo Práctico
 
-TP_3/
-└── Sprint_2_Trabajo_Practico_Nro_3/
+S3_TP2/
     ├── config/
     │   └── dbConfig.mjs             # Configuración y conexión a la base de datos (Paso 1)
     ├── controllers/
@@ -72,3 +86,16 @@ TP_3/
 
 ###### María Gabriela Centeno Bensadón
 ###### Año 2026
+
+
+
+
+
+
+
+
+
+
+
+
+└── Sprint_2_Trabajo_Practico_Nro_3/
