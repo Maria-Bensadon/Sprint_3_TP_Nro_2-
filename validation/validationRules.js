@@ -55,4 +55,4 @@ export const validarHeroe = () => [
         .isLength({ min: 3, max: 60 }).withMessage('Cada poder debe tener como minimo 3 letras')
 
 
-]
+]; 
