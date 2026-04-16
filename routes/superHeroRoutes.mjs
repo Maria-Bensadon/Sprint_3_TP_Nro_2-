@@ -8,7 +8,6 @@
 */
 
 import express from 'express';
-
 import {
   actualizarSuperheroeController,
   buscarSuperheroesPorAtributoController, crearSuperheroeController,
@@ -18,6 +17,9 @@ import {
   obtenerTodosLosSuperheroesController
 } from '../controllers/superHeroControllers.mjs';
 
+// se importa validarHeroe -------------------------
+import { validarHeroe } from '../validation/validationRules.js'; 
+// ------------------------------------------------------
 const router = express.Router();
 
 /** 
@@ -45,13 +47,13 @@ router.get('/heroes/buscar/:atributo/:valor', buscarSuperheroesPorAtributoContro
  * Endpoint POST
 */
 // http://localhost:3000/api/heroes/crear-superheroe
-router.post('/heroes/crear-superheroe', crearSuperheroeController);
+router.post('/heroes/crear-superheroe', validarHeroe(), crearSuperheroeController);
 
 /** 
  * Endpoint PUT
 */
 // http://localhost:3000/api/heroes/:id
-router.put('/heroes/:id', actualizarSuperheroeController);
+router.put('/heroes/:id', validarHeroe(), actualizarSuperheroeController);
 
 /** 
  * Endpoints DELETE
@@ -66,7 +68,6 @@ router.delete('/heroes/nombre/:valor', eliminarSuperheroePorSuNombreController);
 // por id
 // http://localhost:3000/api/heroes/:id
 router.delete('/heroes/:id', eliminarSuperheroePorIdController);
-
 
 
 
@@ -124,7 +125,33 @@ export default router;
     "enemigos": ["Kingpin", "Bullseye"],
     "creador": "Stan Lee"
 
-  }
+  }, 
+
+  {
+        "nombreSuperHeroe": "Botoxman",
+        "nombreReal": "Peter Bower",
+        "nombreSociedad": "Vigilante",
+        "edad": 49,
+        "planetaOrigen": "Tierra",
+        "debilidad": "plantas",
+        "poder": ["vision rayos x", "superfuerza"],
+        "habilidadespecial": "Invisibilidad",
+        "aliado": ["Spiderman"],
+        "enemigo": ["Duende Verde"]
+    }, 
+
+    {
+        "nombreSuperHeroe": "El Superviviente",
+        "nombreReal": "Kelsier",
+        "nombreSociedad": "Skaas",
+        "edad": 42,
+        "planetaOrigen": "Scadrial",
+        "debilidad": "Impulsividad",
+        "poder": alomancia,
+        "habilidadespecial": "Redes de telaraña",
+        "aliado": ["Rebeldes", ""],
+        "enemigo": ["Duende Verde"]
+    }
 ]
   
 */
