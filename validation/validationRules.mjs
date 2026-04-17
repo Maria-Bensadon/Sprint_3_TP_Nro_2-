@@ -35,7 +35,7 @@
     * express-validator => acumula los mensajes de los errores
     con .withMessage() dentro del request
     * validationResult(req) => leer el request, es decir, los
-    mensajes de validarHeroe() y los muestra en el controller
+    mensajes acumulados de validarHeroe() y los muestra en el controller
     
 */
 
