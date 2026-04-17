@@ -76,24 +76,23 @@ class superHeroRepository extends IRepository {
            $gt significa "Greater Than" (>). 
            Buscamos en el campo 'edad' valores que superen los 30.
         */
-        edad: { $gt: 30 },
+      edad: { $gt: 30 },
 
-        /* CONDICIÓN 2: El planeta debe ser exactamente "Tierra".
-           Al ser una comparación de igualdad directa, se escribe 
-           el campo y el valor sin operadores especiales.
-        */
-        planetaOrigen: "Tierra",
+      /* CONDICIÓN 2: El planeta debe ser exactamente "Tierra".
+         Al ser una comparación de igualdad directa, se escribe 
+         el campo y el valor sin operadores especiales.
+      */
+      planetaOrigen: "Tierra",
 
-        /* CONDICIÓN 3: Debe tener al menos 2 poderes.
-           Consultamos si existe algo en el índice 1 del array (la segunda posición).
-           Si el índice 1 tiene datos, significa que el array tiene 2 elementos o más.
-        */
-        "poderes.1": { $exists: true }
+      /* CONDICIÓN 3: Debe tener al menos 2 poderes.
+         Consultamos si existe algo en el índice 1 del array (la segunda posición).
+         Si el índice 1 tiene datos, significa que el array tiene 2 elementos o más.
+      */
+      "poderes.1": { $exists: true }
     });
-    
+
   }
 
-}
 
   // ------------------------------------------------------
 
@@ -106,10 +105,10 @@ class superHeroRepository extends IRepository {
 
   async crearHeroe(datos) {
 
-  //console.log(`se crea un superheroe`); 
-  return await superHero.create(datos);
+    //console.log(`se crea un superheroe`); 
+    return await superHero.create(datos);
 
-}
+  }
 
   // ------------------------------------------------------
 
@@ -117,10 +116,10 @@ class superHeroRepository extends IRepository {
 
   async actualizarHeroe(id, datosActualizados) {
 
-  //console.log(`Se actualiza a:`, id); 
-  return await superHero.findByIdAndUpdate(id, datosActualizados);
+    //console.log(`Se actualiza a:`, id); 
+    return await superHero.findByIdAndUpdate(id, datosActualizados);
 
-}
+  }
 
   // ------------------------------------------------------
 
@@ -128,17 +127,17 @@ class superHeroRepository extends IRepository {
 
   // metodo para eliminar un superheroe por id
   async eliminarHeroe(id) {
-  //console.log(`Se elimina a:`, id); 
-  return await superHero.findByIdAndDelete(id);
-}
+    //console.log(`Se elimina a:`, id); 
+    return await superHero.findByIdAndDelete(id);
+  }
 
 
   // metodo para eliminar un superheroe por nombre
   async eliminarHeroePorNombre(valor) {
 
-  //console.log(`Se elimina a:`, valor); 
-  return await superHero.findOneAndDelete({ nombreSuperHeroe: valor });
-}
+    //console.log(`Se elimina a:`, valor); 
+    return await superHero.findOneAndDelete({ nombreSuperHeroe: valor });
+  }
 
 
 }

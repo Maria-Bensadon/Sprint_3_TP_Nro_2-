@@ -7,7 +7,7 @@
    *  
 */
 
-import express from 'express';
+import express from "express";
 import {
   actualizarSuperheroeController,
   buscarSuperheroesPorAtributoController, crearSuperheroeController,
@@ -18,7 +18,7 @@ import {
 } from '../controllers/superHeroControllers.mjs';
 
 // se importa validarHeroe -------------------------
-import { validarHeroe } from '../validation/validationRules.js'; 
+import { validarHeroe } from "../validation/validationRules.mjs"; 
 // ------------------------------------------------------
 const router = express.Router();
 

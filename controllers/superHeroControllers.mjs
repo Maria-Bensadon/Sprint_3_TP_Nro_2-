@@ -38,6 +38,7 @@ import {
 // la vista se realiza en el paso 6
 import { renderizarListaSuperheroes, renderizarSuperheroe } from "../views/responseView.mjs"
 
+import { validationResult } from 'express-validator';
 
 // --------------------- Metodo GET -------------------------------
 // 1) OBTENER SUPERHEROES POR ID
@@ -185,6 +186,19 @@ export async function obtenerSuperheroesMayoresDe30Controller(req, res) {
 export async function crearSuperheroeController(req, res) {
 
   try {
+     // Como mostrar los errores
+    // ---------------------------
+    // las validaciones que no hayan funcionado, las guardo en una constante
+    const errores = validationResult(req); 
+    // si esta constante NO esta vacia
+    if(!errores.isEmpty()) {
+      // devolvemos el error 400 => solicitus con datos inválidos o malformados
+      /* 
+        accedemos al array y le aplicamos el metodo map, donde 
+        revisamos error por error, y devolvemos el mensaje (withMessage = msg) del mismo
+      */
+      return res.status(400).json({errors: errores.array().map(error => error.msg)});
+    }
     const datos = req.body;
 
     // Se busca el superheroe
@@ -216,6 +230,20 @@ export async function crearSuperheroeController(req, res) {
 export async function actualizarSuperheroeController(req, res) {
 
   try {
+    // Como mostrar los errores
+    // ---------------------------
+    // las validaciones que no hayan funcionado, las guardo en una constante
+    const errores = validationResult(req); 
+    // si esta constante NO esta vacia
+    if(!errores.isEmpty()) {
+      // devolvemos el error 400 => solicitus con datos inválidos o malformados
+      /* 
+        accedemos al array y le aplicamos el metodo map, donde 
+        revisamos error por error, y devolvemos el mensaje (withMessage = msg) del mismo
+      */
+      return res.status(400).json({errors: errores.array().map(error => error.msg)});
+    }
+
     const id = req.params.id;
     const datosActualizados = req.body;
 
