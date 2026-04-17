@@ -186,18 +186,24 @@ export async function obtenerSuperheroesMayoresDe30Controller(req, res) {
 export async function crearSuperheroeController(req, res) {
 
   try {
-     // Como mostrar los errores
+    // Como mostrar los errores
     // ---------------------------
     // las validaciones que no hayan funcionado, las guardo en una constante
-    const errores = validationResult(req); 
+    const errores = validationResult(req);
     // si esta constante NO esta vacia
-    if(!errores.isEmpty()) {
+    if (!errores.isEmpty()) {
       // devolvemos el error 400 => solicitus con datos inválidos o malformados
       /* 
         accedemos al array y le aplicamos el metodo map, donde 
         revisamos error por error, y devolvemos el mensaje (withMessage = msg) del mismo
       */
-      return res.status(400).json({errors: errores.array().map(error => error.msg)});
+      return res.status(400).json({
+        errors: errores.array().map(error =>
+        ({
+          field: error.param,
+          message: error.msg,
+        }))
+      });
     }
     const datos = req.body;
 
@@ -233,15 +239,21 @@ export async function actualizarSuperheroeController(req, res) {
     // Como mostrar los errores
     // ---------------------------
     // las validaciones que no hayan funcionado, las guardo en una constante
-    const errores = validationResult(req); 
+    const errores = validationResult(req);
     // si esta constante NO esta vacia
-    if(!errores.isEmpty()) {
+    if (!errores.isEmpty()) {
       // devolvemos el error 400 => solicitus con datos inválidos o malformados
       /* 
         accedemos al array y le aplicamos el metodo map, donde 
         revisamos error por error, y devolvemos el mensaje (withMessage = msg) del mismo
       */
-      return res.status(400).json({errors: errores.array().map(error => error.msg)});
+      return res.status(400).json({
+        errors: errores.array().map(error =>
+        ({
+          field: error.param,
+          message: error.msg,
+        }))
+      });
     }
 
     const id = req.params.id;
