@@ -79,12 +79,10 @@ export default router;
   {
         "nombreSuperHeroe": "Spiderman",
         "nombreReal": "Peter Parker",
-        "nombreSociedad": "Vigilante",
         "edad": 25,
         "planetaOrigen": "Tierra",
         "debilidad": "Radioactiva",
-        "poder": ["Trepar paredes", "Sentido arácnido", "Super fuerza", "Agilidad"],
-        "habilidadespecial": "Redes de telaraña",
+        "poderes": ["Trepar paredes", "Sentido arácnido", "Super fuerza", "Agilidad"],
         "aliado": ["Ironman"],
         "enemigo": ["Duende Verde"]
     },

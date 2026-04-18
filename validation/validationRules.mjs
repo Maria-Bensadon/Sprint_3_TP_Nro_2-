@@ -91,7 +91,21 @@ export const validarHeroe = () => [
         .withMessage('poderes (elemento)(1): El superheroe debe tener al menos 1 poder')
         .trim() // elimina los espacion en blanco al inicio y al final
         .isLength({ min: 3, max: 60 })
-        .withMessage('poderes (elemento)(1):Cada poder debe tener como minimo 3 letras')
+        .withMessage('poderes (elemento)(1):Cada poder debe tener como minimo 3 letras'),
 
-
+    //------------------------------------------------------------------------------------
+      
+    body('planetaOrigen')
+        .notEmpty()
+        .withMessage('planetaOrigen (elemento)(1): El campo no puede estar vacio')
+        .trim()
+        .isLength({min:3, max:60})
+        .withMessage('planetaOrigen (elemento)(2): el valor debe tener al menos 3 caracteres'),
+    
+    body('debilidad')
+        .notEmpty()
+        .withMessage('debilidad (1): El campo no puede estar vacio')
+        .trim()
+        .isLength({min:3, max:60})
+        .withMessage('debilidad (2): el valor debe tener al menos 3 caracteres')
 ]; 

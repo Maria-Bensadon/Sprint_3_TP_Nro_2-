@@ -13,14 +13,15 @@ export function renderizarSuperheroe(superheroe) {
     return {
 
         // estructura de la vista
-        Nombre: superheroe.nombreSuperhero,
+        Nombre: superheroe.nombreSuperHeroe,
         "Nombre Real": superheroe.nombreReal,
         Edad: superheroe.edad,
         "Planeta de Origen": superheroe.planetaOrigen,
         Debilidad: superheroe.debilidad,
         Poderes: superheroe.poderes,
         Aliados: superheroe.aliados,
-        Enemigos: superheroe.enemigos
+        Enemigos: superheroe.enemigos, 
+        Creador: superheroe.creador
 
     };
 }
