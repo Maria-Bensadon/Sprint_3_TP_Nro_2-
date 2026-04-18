@@ -49,10 +49,10 @@ export const validarHeroe = () => [
         no tenga espacios en blanco(trim), una longitud 
         minima de 3 caracteres y una longitud maxima de 60
  */
-    body('nombreSuperheroe')
-        .notEmpty().withMessage('nombreSuperheroe (1): El superheroe debe tener un nombre')
+    body('nombreSuperHeroe')
+        .notEmpty().withMessage('nombreSuperHeroe (1): El superheroe debe tener un nombre')
         .trim()
-        .isLength({ min: 3, max: 60 }).withMessage('nombreSuperheroe (2): El nombre debe tener entre 3 y 60 caracteres'),
+        .isLength({ min: 3, max: 60 }).withMessage('nombreSuperHeroe (2): El nombre debe tener entre 3 y 60 caracteres'),
 
     /*
         nombreReal debe validarse que sea requerido, 
@@ -60,7 +60,7 @@ export const validarHeroe = () => [
         minima de 3 caracteres y una longitud maxima de 60
     */
     body('nombreReal')
-        .notEmpty().withMessage('nombreReal (1): El nombre real es necesario')
+        .notEmpty().withMessage('nombreReal (1): El campo esta vacio')
         .trim()
         .isLength({ min: 3, max: 60 }).withMessage('nombreReal (2): El nombre debe tener entre 3 y 60 caracteres'),
 
@@ -72,7 +72,7 @@ export const validarHeroe = () => [
     body('edad')
         .notEmpty().withMessage('edad (1): Debe indicar la edad del superheroe')
         .trim()
-        .isInt({ min: 0 }).withMessage('edad (2): La edad no puede ser negativa'),
+        .isInt({ min: 0 }).withMessage('edad (2): La edad no puede ser negativa'), // es un numero
 
     /*
         poderes debe validarse que sea requerido, que sea un array de 
@@ -82,13 +82,16 @@ export const validarHeroe = () => [
     */
     // se aplica a todo el array
     body('poderes')
-        .isArray({ min: 1 }).withMessage('poderes (array): El array debe ser mayor a cero'),
+        .isArray({ min: 1 })
+        .withMessage('poderes (array): El array debe tener al menos un elemento'),
 
     // valida cada elemento del array
     body('poderes.*')
-        .notEmpty().withMessage('poderes (elemento)(1): El superheroe debe tener al menos 1 poder')
-        .trim()
-        .isLength({ min: 3, max: 60 }).withMessage('poderes (elemento)(1):Cada poder debe tener como minimo 3 letras')
+        .notEmpty()
+        .withMessage('poderes (elemento)(1): El superheroe debe tener al menos 1 poder')
+        .trim() // elimina los espacion en blanco al inicio y al final
+        .isLength({ min: 3, max: 60 })
+        .withMessage('poderes (elemento)(1):Cada poder debe tener como minimo 3 letras')
 
 
 ]; 
