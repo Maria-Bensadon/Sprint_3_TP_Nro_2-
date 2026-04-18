@@ -128,12 +128,10 @@ export default router;
   {
         "nombreSuperHeroe": "Botoxman",
         "nombreReal": "Peter Bower",
-        "nombreSociedad": "Vigilante",
         "edad": 49,
         "planetaOrigen": "Tierra",
         "debilidad": "plantas",
         "poder": ["vision rayos x", "superfuerza"],
-        "habilidadespecial": "Invisibilidad",
         "aliado": ["Spiderman"],
         "enemigo": ["Duende Verde"]
     }, 
@@ -141,12 +139,10 @@ export default router;
     {
         "nombreSuperHeroe": "El Superviviente",
         "nombreReal": "Kelsier",
-        "nombreSociedad": "Skaas",
         "edad": 42,
         "planetaOrigen": "Scadrial",
         "debilidad": "Impulsividad",
         "poder": alomancia,
-        "habilidadespecial": "Redes de telaraña",
         "aliado": ["Rebeldes", ""],
         "enemigo": ["Duende Verde"]
     }
