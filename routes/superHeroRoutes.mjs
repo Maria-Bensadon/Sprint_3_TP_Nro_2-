@@ -19,6 +19,7 @@ import {
 
 // se importa validarHeroe -------------------------
 import { validarHeroe } from "../validation/validationRules.mjs"; 
+import { handleValidationErrors } from "../validationResults/handleValidationErrors.mjs"; 
 // ------------------------------------------------------
 const router = express.Router();
 
@@ -47,13 +48,13 @@ router.get('/heroes/buscar/:atributo/:valor', buscarSuperheroesPorAtributoContro
  * Endpoint POST
 */
 // http://localhost:3000/api/heroes/crear-superheroe
-router.post('/heroes/crear-superheroe', validarHeroe(), crearSuperheroeController);
+router.post('/heroes/crear-superheroe', validarHeroe(), handleValidationErrors, crearSuperheroeController);
 
 /** 
  * Endpoint PUT
 */
 // http://localhost:3000/api/heroes/:id
-router.put('/heroes/:id', validarHeroe(), actualizarSuperheroeController);
+router.put('/heroes/:id', validarHeroe(), handleValidationErrors, actualizarSuperheroeController);
 
 /** 
  * Endpoints DELETE
